@@ -190,7 +190,7 @@ try {
 
  
   <!-- Main Content Section -->
-  <section class="py-12 md:w-[900px]  mx-auto grid   gap-2">
+  <section class="py-12 w-[900px]  md:w-[900px]  mx-auto grid   gap-2">
     <!-- Video and About the Lesson -->
     <a href="video.php" class="back-button flex items-center bg-yellow-500 text-white px-4 py-2 rounded hover:bg-blue-600">
         <span class="back-icon mr-2">⬅️</span>
