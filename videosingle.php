@@ -1,6 +1,6 @@
 <?php include("headerk.php"); 
 
-$id = $_REQUEST['id'];
+echo $id = $_REQUEST['id'];
 
 $international_vyapaar_topics = [
     1 => [
