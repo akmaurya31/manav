@@ -3,7 +3,7 @@
   <head>
     <title>Everything About International Vyapaar</title>
     <meta charset="UTF-8">
-    <meta name="description" content="Everything About International Vyapaar | TPEG International LLC Dubai | TPEG founded by Dr. Manav Ahuja">
+    <meta name="description" content="Everything About International Vyapaar | TPEG International LLC Dubai | TPEG founded by Dr. Manav Ahuja | Dubai">
     <meta name="keywords" content="TPEG,Product Consultation,International Vyapaar,TPEG International LLC Dubai">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
