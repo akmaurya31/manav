@@ -1,0 +1,127 @@
+/* styles.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .bpoint {
+        @apply mr-[8px] h-[66px] w-[66px] border-[5px] border-[#ffffff] rounded-full bg-[#ffffff] 
+                 flex justify-center items-center text-[2.84375rem] font-semibold text-[#000000];
+        /* Define the custom shadow directly */
+        box-shadow: inset 0 5.5px 15.04px 0.96px rgba(3, 4, 4, 0.34), 1.94px 1.57px 0.76px 0.24px rgba(0, 2, 25, 0.15);
+        
+    }
+
+    .nkil {
+        @apply  min-h-[92px] p-[8px_11px_4px] relative rounded-[45.89px] bg-[#e0842a] flex items-center mb-[20px]
+    }
+}
+
+ 
+  @keyframes bounce-custom {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  .animate-bounce-custom {
+    animation: bounce-custom 1s infinite;
+  }
+ 
+
+  @keyframes bounce-left-right {
+    0%, 100% {
+      transform: translateX(0); /* Start and end at the same position */
+    }
+    50% {
+      transform: translateX(20px); /* Move 20px to the right at 50% of the animation */
+    }
+  }
+
+  .animate-bounce-left-right {
+    animation: bounce-left-right 1.5s infinite; /* The animation duration is 1.5s, looping infinitely */
+  }
+
+
+  .down-arrow {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-top: 50px solid #fb923c; /* Change this line to create a down arrow */
+    
+}
+ 
+  @keyframes marqueeLeft {
+    0% { left: 0%; }
+    100% { left: -100%; }
+  }
+
+  @keyframes marqueeRight {
+    0% { left: -100%; }
+    100% { left: 0%; }
+  }
+
+  .animate-marqueeLeft {
+    animation: marqueeLeft 25s linear infinite;
+  }
+
+  .animate-marqueeRight {
+    animation: marqueeRight 25s linear infinite;
+  }
+
+
+  .tatsu-popup-container {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .tatsu-popup-inner-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px; /* Adjust the width as needed */
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .tatsu-modal-content {
+    position: relative;
+    width: 100%;
+    border-top-left-radius: 1rem; /* Rounded top-left corner */
+    border-bottom-left-radius: 1rem; /* Rounded bottom-left corner */
+    background-color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Adds a shadow for depth */
+  }
+  
+  .close-icon {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+  }
+  
+  .close-icon svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: none;
+    stroke: #4B4B4B;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+  }
+  
+  .modal-body {
+    padding: 2rem;
+  }
+  
+ 
