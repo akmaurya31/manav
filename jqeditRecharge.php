@@ -21,7 +21,27 @@ $recharge=$amount;
 $used=0;
 $Tcurrent_balance=$prev_balance+$amount;
 
-$sql = "INSERT INTO wallet (user_id, used, service, amt_type, details,prev_balance,current_balance,recharge,transaction) VALUES ('$user_id', '$used', '$service', '$amt_type', '$details','$prev_balance','$Tcurrent_balance','$recharge','$transaction_id')";
+//echo $sql = "INSERT INTO wallet (user_id, used, service, amt_type, details,prev_balance,current_balance,recharge,transaction) VALUES ('$user_id', '$used', '$service', '$amt_type', '$details','$prev_balance','$Tcurrent_balance','$recharge','$transaction_id')";
+
+
+$sql = "UPDATE users 
+        SET 
+            pay = $amount, 
+            pay_date = NOW(), 
+            current_balance = $amount, 
+            transaction_id = '11111111111111', 
+            paid =  $amount, 
+            pstatus = 'Completed', 
+            updated_at = NOW()
+        WHERE id = $user_id";
+
+// r_id: 9
+// r_amount: 490
+// r_transaction_id: 11111111111111
+// r_pay_date: 2024-10-22
+
+// id	name	email	mobile	password	city	state	yourbusiness	role	pay	pay_date	current_balance	transaction_id	pcurrency	paid	pstatus	edate	created_at	updated_at
+//  edit	1	Avinash Maurya
 
 if ($mysqli->query($sql) === TRUE) {
     echo "User information inserted successfully.";

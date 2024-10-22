@@ -1,6 +1,6 @@
 <?php include("headerk.php"); 
 
-echo $id = $_REQUEST['id'];
+  $id = $_REQUEST['id'];
 
 $international_vyapaar_topics = [
     1 => [
@@ -186,9 +186,43 @@ try {
     }
   </style>
  
- 
+ <?php if($id==3){ ?>
+<!-- Main Content Section -->
+<section class="py-12 w-[900px] mx-auto grid grid-cols-2 md:grid-cols-5 gap-4">
+  <!-- Export Promotion Scheme Manual -->
+  <div class="border rounded-lg p-4 text-center bg-blue-50 hover:bg-blue-100 transition-shadow shadow-lg hover:shadow-xl">
+    <h3 class="font-bold text-lg mb-2">Export Promotion Scheme Manual</h3>
+    <a href="./files/ExportPromotionSchemeManul.pdf" download class="text-blue-500 underline hover:text-blue-700">Download</a>
+  </div>
 
- 
+  <!-- IEC Apply DGFT Manual -->
+  <div class="border rounded-lg p-4 text-center bg-green-50 hover:bg-green-100 transition-shadow shadow-lg hover:shadow-xl">
+    <h3 class="font-bold text-lg mb-2">IEC Apply DGFT Manual</h3>
+    <a href="./files/IECApplyDGFTManual.pdf" download class="text-green-500 underline hover:text-green-700">Download</a>
+  </div>
+
+  <!-- Letter Of Credit Manual -->
+  <div class="border rounded-lg p-4 text-center bg-red-50 hover:bg-red-100 transition-shadow shadow-lg hover:shadow-xl">
+    <h3 class="font-bold text-lg mb-2">Letter Of Credit Manual</h3>
+    <a href="./files/LetterOfCreditManual.pdf" download class="text-red-500 underline hover:text-red-700">Download</a>
+  </div>
+
+  <!-- AD Code Apply Format -->
+  <div class="border rounded-lg p-4 text-center bg-yellow-50 hover:bg-yellow-100 transition-shadow shadow-lg hover:shadow-xl">
+    <h3 class="font-bold text-lg mb-2">AD Code Apply Format</h3>
+    <a href="./files/ADCodeApplyFormat.docx" download class="text-yellow-500 underline hover:text-yellow-700">Download</a>
+  </div>
+
+  <!-- Commodity Boards Websites -->
+  <div class="border rounded-lg p-4 text-center bg-purple-50 hover:bg-purple-100 transition-shadow shadow-lg hover:shadow-xl">
+    <h3 class="font-bold text-lg mb-2">Commodity Boards Websites</h3>
+    <a href="./files/CommodityBoardsWebsites.docx" download class="text-purple-500 underline hover:text-purple-700">Download</a>
+  </div>
+</section>
+
+<?php } ?>
+
+
   <!-- Main Content Section -->
   <section class="py-12 w-[900px]  md:w-[900px]  mx-auto grid   gap-2">
     <!-- Video and About the Lesson -->
