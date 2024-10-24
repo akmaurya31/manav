@@ -129,7 +129,7 @@
         </div>
         <div class="p-4">
           <div class="flex items-center mb-4">
-            <img class="w-12 h-12 rounded-full border-2 border-indigo-500 floating" src="./images/1724738738665.jpeg" alt="Author Photo">
+            <img class="w-12 h-12 rounded-full border-2 border-indigo-500 floating" src="./images/a1deepak.png" alt="Author Photo">
             <div class="ml-4">
               <p class="text-sm text-gray-700 font-semibold">Subject Matter Expert - Mr Deepak Nailwal</p>
               <p class="text-xs text-gray-500">Duration: 11 mins</p>
