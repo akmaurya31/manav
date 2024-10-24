@@ -13,6 +13,12 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
 <div class="container mb-4 mx-auto max-w-[1350px] pt-5">
     <h3 class="text-center text-2xl font-bold py-2">🧑All User List🧑</h3>
 
+    <form action="export.php" method="post">
+            <button type="submit" name="export" class="bg-blue-500 text-white px-4 py-2 rounded-lg">
+                Export User Data to CSV
+            </button>
+        </form>
+
     <!-- Search Form -->
     <div class="mx-auto max-w-[1350px]">
     <form method="GET" class="mb-4 flex justify-center">
