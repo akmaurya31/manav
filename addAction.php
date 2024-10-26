@@ -59,7 +59,11 @@ if (isset($_POST['submit'])) {
             // Insert user data into the database
             $result = mysqli_query($mysqli, "INSERT INTO users (`name`, `mobile`, `email`,`password`,`city`,`state`,`yourbusiness`) VALUES ('$name', '$mobile', '$email','$password','$city','$state','$yourbusiness')");
 
-           
+            $_SESSION['Tname'] = $name;
+            $_SESSION['Tmobile'] = $mobile;
+            $_SESSION['Tpassword'] = $password; // Consider not storing plain passwords in session
+          
+            include('mail.php');
 
             // Show success message and auto-submit login form
             echo '<div class="flex justify-center items-center">
