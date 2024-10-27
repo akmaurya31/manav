@@ -11,6 +11,7 @@ $mail = new PHPMailer(true);
 $Tname=$_SESSION['Tname'];
 $Tmobile=$_SESSION['Tmobile'];
 $Tpassword=$_SESSION['Tpassword'];
+$Temail=$_SESSION['Temail'];
 
 
 try {
@@ -25,7 +26,8 @@ try {
 
     // Recipient and sender
     $mail->setFrom('help@tpeg-ibiv.com', 'TPEG International');
-    $mail->addAddress('akmaurya31@gmail.com', 'Ak Maurya');
+    // $mail->addAddress('akmaurya31@gmail.com', 'Ak Maurya');
+    $mail->addAddress($Temail, 'Ak Maurya');
 
     // HTML content
     $mail->isHTML(true);

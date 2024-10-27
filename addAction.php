@@ -62,6 +62,7 @@ if (isset($_POST['submit'])) {
             $_SESSION['Tname'] = $name;
             $_SESSION['Tmobile'] = $mobile;
             $_SESSION['Tpassword'] = $password; // Consider not storing plain passwords in session
+            $_SESSION['Temail'] = $email; // Consider not storing plain passwords in session
           
             include('mail.php');
 
