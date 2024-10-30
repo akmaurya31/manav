@@ -103,22 +103,51 @@ include('set_view.php');
 
 
             <?php }  ?>
-       
-        <section class="">
-                <?php 
+
+            <?php 
                     if($_SESSION['device_view']=='desktop'){ 
                        $l1=' width="829" height="181"';
                        $l2=' width="846" height="70"';
                        $l3=' width="342" height="122"';
                        $l4=' width="347" height="300"';
+
+                       $yt=' w-[50%] ';
                     }
                     else{ 
                         $l1=' width="829" height="181"';
                         $l2=' width="846" height="70"';
                         $l3=' width="342" height="122"';
                         $l4=' width="347" height="300"';
+                        $yt=' w-[100%] ';
                      }
                 ?>
+
+            <div class="w-[100%] flex justify-center ">
+            <div class=" <?php echo $yt; ?> flex justify-center mt-10">
+    <div class="w-[100%] max-w-2xl p-4 bg-black text-white border-4 border-orange-500 rounded-lg shadow-lg">
+        <!-- <p class="text-center mb-6">We are TPEG International LLC, a Dubai-based company dedicated to helping local Indian products thrive in international markets.</p> -->
+
+        <div class="relative overflow-hidden rounded-md border-4 border-orange-500 shadow-lg" style="padding-top: 56.25%;">
+            <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/l3-YQhNtlS4?si=O04qeRk5XzMgLKkq"
+                    title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+</div>
+
+        </div>
+            
+
+       
+        <section class="">
+              
+
+
+
+
+   
+
 
             <div class="l-unconstrained mb-10 bg-black">
                 <div class="l-constrained">
