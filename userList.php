@@ -4,7 +4,10 @@
 // die("sdfa");
 
 if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
-}else{
+
+}else if (isset($_SESSION['role']) && $_SESSION['role'] == 'sale') {
+
+}else {
   header("Location: dashboard.php");
   exit();
 }

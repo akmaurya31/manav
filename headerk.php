@@ -67,7 +67,8 @@ function getCurWallet($mysqli,$userId) {
 <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
     <?php $dd='bg-white';
     
-    if($_SESSION['role']=='admin'){ $dd='bg-red-500'; }  ?>
+    if($_SESSION['role']=='admin' || $_SESSION['role']=='sale' ){ $dd='bg-red-500'; }  ?>
+    
 
 
     
@@ -108,6 +109,19 @@ function getCurWallet($mysqli,$userId) {
       <?php if($_SESSION['role']=='admin') { ?>
       <li>
         <a href="userList.php" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0   ">  📋User List</a>
+      </li>
+      <?php } ?>
+
+
+      <?php if($_SESSION['role']=='sale') { ?>
+
+      <li>
+        <a href="saleForm.php" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0   ">  📋Sale Form</a>
+      </li>
+
+
+      <li>
+        <a href="saleList.php" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0   ">  📋Sale List</a>
       </li>
       <?php } ?>
      
