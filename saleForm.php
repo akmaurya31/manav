@@ -194,7 +194,11 @@
  document.addEventListener('DOMContentLoaded', function() {
     // Function to fetch product data using Fetch API
     function populateProductDropdown() {
-        fetch('/manav1/manav/productslist')  // Replace with your actual API URL
+        const baseURL = window.location.origin.includes('localhost') 
+      ? '/manav1/manav' // Local environment
+      : ''; // Production environment
+
+        fetch(`${baseURL}/productslist`)  // Replace with your actual API URL
             .then(response => response.json())  // Parse the response as JSON
             .then(data => {
                 const productDropdown = document.getElementById('product');
