@@ -131,8 +131,11 @@ function displaySalesTeam(salesTeam) {
 
 // Function to fetch sales team data from API using AJAX
 function fetchSalesTeam() {
+    const baseURL = window.location.origin.includes('localhost') 
+      ? '/manav1/manav' // Local environment
+      : ''; // Production environment
     $.ajax({
-        url: '/manav1/manav/saleslist.php', // Replace with your API URL
+        url: `${baseURL}/saleslist.php`, // Replace with your API URL
         method: 'GET',
         success: function(data) {
             let salesData = JSON.parse(data);
@@ -155,10 +158,12 @@ $('#addSalesPersonForm').submit(function(e) {
     const email = $('#salesPersonEmail').val();
     const password = $('#salesPersonPassword').val();
     const status = $('#salesPersonStatus').val();
-
+    const baseURL = window.location.origin.includes('localhost') 
+      ? '/manav1/manav' // Local environment
+      : ''; // Production environment
     $.ajax({
         type: 'POST',
-        url: '/manav1/manav/salesadd', // Replace with your API URL
+        url: `${baseURL}/salesadd`, // Replace with your API URL
         data: { name, email, password, status },
         success: function(response) {
             $('#addSalesPersonModal').addClass('hidden');
@@ -181,10 +186,14 @@ $('#editSalesPersonForm').submit(function (e) {
     const email = $('#editSalesPersonEmail').val();
     const password = $('#editSalesPersonPassword').val();
     const status = $('#editSalesPersonStatus').val();
+    const baseURL = window.location.origin.includes('localhost') 
+      ? '/manav1/manav' // Local environment
+      : ''; // Production environment
 
     $.ajax({
+
         type: 'POST',
-        url: '/manav1/manav/salesedit', // Replace with your edit API URL
+        url: `${baseURL}/salesedit`, // Replace with your edit API URL
         data: { id, name, email, password, status },
         success: function (response) {
             $('#editSalesPersonModal').addClass('hidden');
@@ -201,8 +210,11 @@ $('#editSalesPersonForm').submit(function (e) {
 
 // Function to edit a sales person
 function editSalesPerson(id) {
+    const baseURL = window.location.origin.includes('localhost') 
+      ? '/manav1/manav' // Local environment
+      : ''; // Production environment
     $.ajax({
-        url: `/manav1/manav/salesview?id=${id}`, // Replace with your API URL
+        url: `${baseURL}/salesview?id=${id}`, // Replace with your API URL
         method: 'GET',
         success: function(data) {
             const salesPerson = JSON.parse(data);
@@ -219,8 +231,11 @@ function editSalesPerson(id) {
 
 // Function to delete a sales person
 function deleteSalesPerson(id) {
+    const baseURL = window.location.origin.includes('localhost') 
+      ? '/manav1/manav' // Local environment
+      : ''; // Production environment
     $.ajax({
-        url: `/manav1/manav/salesdelete.php?id=${id}`, // Replace with your API URL
+        url: `${baseURL}/salesdelete.php?id=${id}`, // Replace with your API URL
         method: 'GET',
         success: function(response) {
             let salesData = JSON.parse(response);

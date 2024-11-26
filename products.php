@@ -130,8 +130,12 @@ function displayProducts(products) {
 
 // Function to fetch products from API using AJAX
 function fetchProducts() {
+      const baseURL = window.location.origin.includes('localhost') 
+      ? '/manav1/manav' // Local environment
+      : ''; // Production environment
+
     $.ajax({
-        url: '/manav1/manav/productslist.php',
+        url: `${baseURL}/productslist.php`,
         method: 'GET',
         success: function(data) {
             let data1 = JSON.parse(data);
@@ -154,9 +158,13 @@ $('#addProductForm').submit(function(e) {
     const productCode = $('#productCode').val();
     const status = $('#productStatus').val();
 
+    const baseURL = window.location.origin.includes('localhost') 
+      ? '/manav1/manav' // Local environment
+      : ''; // Production environment
+
     $.ajax({
         type: 'POST',
-        url: '/manav1/manav/productsadd', // Replace with your API URL
+        url: `${baseURL}/productsadd`, // Replace with your API URL
         data: { productName, productCode, status },
         success: function(response) {
             $('#addProductModal').addClass('hidden');
@@ -173,9 +181,12 @@ $('#addProductForm').submit(function(e) {
 
 // Function to handle editing a product
 function editProduct(productId) {
+  const baseURL = window.location.origin.includes('localhost') 
+      ? '/manav1/manav' // Local environment
+      : ''; // Production environment
     $.ajax({
         type: 'GET',
-        url: `/manav1/manav/productsedit?id=${productId}`, // Replace with your API URL
+        url: `${baseURL}/productsedit?id=${productId}`, // Replace with your API URL
         success: function(product) {
             let product1 = JSON.parse(product);
             $('#editProductId').val(product1.id);
@@ -197,10 +208,12 @@ $('#editProductForm').submit(function(e) {
     const updatedName = $('#editProductName').val();
     const updatedCode = $('#editProductCode').val();
     const updatedStatus = $('#editProductStatus').val();
-
+    const baseURL = window.location.origin.includes('localhost') 
+      ? '/manav1/manav' // Local environment
+      : ''; // Production environment
     $.ajax({
         type: 'POST',
-        url: '/manav1/manav/productsupdate', // Replace with your API URL
+        url: `${baseURL}/productsupdate`, // Replace with your API URL
         data: { id: productId, name: updatedName, code: updatedCode, status: updatedStatus },
         success: function(response) {
             let response1 = JSON.parse(response);
@@ -216,9 +229,12 @@ $('#editProductForm').submit(function(e) {
 
 // Function to delete a product using AJAX
 function deleteProduct(productId) {
+  const baseURL = window.location.origin.includes('localhost') 
+      ? '/manav1/manav' // Local environment
+      : ''; // Production environment
     $.ajax({
         type: 'DELETE',
-        url: `/manav1/manav/productsdelete.php?id=${productId}`, // Replace with your API URL
+        url: `${baseURL}/productsdelete.php?id=${productId}`, // Replace with your API URL
         success: function(response) {
             displayProducts(response); // Refresh the product list
         },
