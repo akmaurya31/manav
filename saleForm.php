@@ -55,8 +55,9 @@
 </head>
 <body>
     <h2>Customer Information Form</h2>
-    <form action="f11" method="POST" enctype="multipart/form-data">
-        <div class="form-group">
+    <form action="saleFormAdd" method="POST" enctype="multipart/form-data">
+      
+       <?php if(isset($_SESSION['visiblity']) && $_SESSION['visiblity']==1){ ?> <div class="form-group">
             <label for="religion">Customer's Religion</label>
             <select id="religion" name="religion" required>
                 <option value="">Select Religion</option>
@@ -66,6 +67,14 @@
                 <option value="Sikh">Sikh</option>
                 <option value="Others">Others</option>
             </select>
+        </div>
+        <?php } ?>
+
+        <div class="form-group">
+            <label for="product">Product</label>
+            <select id="product" name="product" required>
+             <option value="" disabled selected>Select Product</option>
+                 </select>
         </div>
 
         <div class="form-group">
@@ -93,10 +102,7 @@
             <input type="text" id="business" name="business" placeholder="Enter Business Industry" required>
         </div>
 
-        <div class="form-group">
-            <label for="product">Product</label>
-            <input type="text" id="product" name="product" placeholder="Enter Product Name" required>
-        </div>
+     
 
         <div class="form-group">
             <label for="seller">Seller Name</label>
@@ -149,6 +155,30 @@
             <input type="text" id="paymentID" name="paymentID" placeholder="Enter Payment ID">
         </div>
 
+        
+        <div class="form-group">
+            <label for="gstApplicable">GST Applicable</label>
+            <select id="gstApplicable" name="gstApplicable" required>
+                <option value="" disabled selected>Select</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+        </div>
+
+        <!-- Container for dynamically added fields -->
+     
+            <div class="form-group">
+                <label for="gstPercentage">GST Percentage</label>
+                <input type="number" id="gstPercentage" name="gstPercentage" placeholder="Enter GST Percentage">
+            </div>
+            <div class="form-group">
+                <label for="gstAmount">GST Amount</label>
+                <input type="number" id="gstAmount" name="gstAmount" placeholder="Enter GST Amount">
+            </div>
+      
+
+
+
         <div class="form-group">
             <label for="screenshot">Payment Screenshot</label>
             <input type="file" id="screenshot" name="screenshot" accept="image/*">
@@ -160,3 +190,37 @@
     </form>
 </body>
 </html>
+<script>
+ document.addEventListener('DOMContentLoaded', function() {
+    // Function to fetch product data using Fetch API
+    function populateProductDropdown() {
+        fetch('/manav1/manav/productslist')  // Replace with your actual API URL
+            .then(response => response.json())  // Parse the response as JSON
+            .then(data => {
+                const productDropdown = document.getElementById('product');
+                
+                // Clear existing options
+                productDropdown.innerHTML = '<option value="" disabled selected>Select Product</option>';
+                // let data1=JSON.parse(data);
+                // console.log(data1,"data1data1data1data1")
+                
+                // Loop through the data and populate the dropdown
+                data.forEach(product => {
+                    const option = document.createElement('option');
+                    option.value = product.id;
+                    option.textContent = product.product_name;
+                    productDropdown.appendChild(option);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching products:', error);
+                // Optionally, handle errors or show a message to the user
+            });
+    }
+
+    // Call the function to fetch and populate the dropdown
+    populateProductDropdown();
+});
+
+
+</script>

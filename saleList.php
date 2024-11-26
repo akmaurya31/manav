@@ -5,6 +5,8 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
 
 } else if (isset($_SESSION['role']) && $_SESSION['role'] == 'sale') {
 
+}else if (isset($_SESSION['role']) && $_SESSION['role'] == 2) {
+
 } else {
     header("Location: dashboard.php");
     exit();
@@ -49,6 +51,9 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
                     <th class="px-6 py-3">Remark</th>
                     <th class="px-6 py-3">Payment ID</th>
                     <th class="px-6 py-3">Screenshot</th>
+                    <th class="px-6 py-3">gst_applicable</th>
+                    <th class="px-6 py-3">gst_percentage</th>
+                    <th class="px-6 py-3">gst_amount</th>
                 </tr>
             </thead>
             <tbody class="bg-white divide-y divide-gray-200">
@@ -89,6 +94,9 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
                         echo "<td class='px-6 py-4'>{$row['remark']}</td>";
                         echo "<td class='px-6 py-4'>{$row['payment_id']}</td>";
                         echo "<td class='px-6 py-4'><img src='{$row['screenshot_path']}' alt='Screenshot' class='w-16 h-16'></td>";
+                        echo "<td class='px-6 py-4'>{$row['gst_applicable']}</td>";
+                        echo "<td class='px-6 py-4'>{$row['gst_percentage']}</td>";
+                        echo "<td class='px-6 py-4'>{$row['gst_amount']}</td>";
                         echo "</tr>";
                     }
                 } else {

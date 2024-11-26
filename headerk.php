@@ -1,4 +1,5 @@
 <?php
+ob_start();
 include('dbconn.php');
 session_start();
 ?>
@@ -110,10 +111,18 @@ function getCurWallet($mysqli,$userId) {
       <li>
         <a href="userList.php" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0   ">  📋User List</a>
       </li>
+
+      <li>
+        <a href="products.php" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0   ">  📋Products</a>
+      </li>
+
+      <li>
+        <a href="salesteam.php" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0   ">  📋Sales Team</a>
+      </li>
       <?php } ?>
 
 
-      <?php if($_SESSION['role']=='sale') { ?>
+      <?php if($_SESSION['role']=='2') { ?>
 
       <li>
         <a href="saleForm.php" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0   ">  📋Sale Form</a>

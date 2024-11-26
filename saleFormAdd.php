@@ -32,6 +32,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" || $_SERVER["REQUEST_METHOD"] == "GET")
     $remark = $conn->real_escape_string($_POST['remark'] ?? "");
     $payment_id = $conn->real_escape_string($_POST['paymentID'] ?? "");
 
+    $gst_applicable = $conn->real_escape_string($_POST['gst_applicable'] ?? "");
+    $gst_percentage = $conn->real_escape_string($_POST['gst_percentage'] ?? "");
+    $gst_amount = $conn->real_escape_string($_POST['gst_amount'] ?? "");
+
     // Handle file upload
     $screenshot_path = null;
     if (isset($_FILES['screenshot']) && $_FILES['screenshot']['error'] === UPLOAD_ERR_OK) {
@@ -46,25 +50,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" || $_SERVER["REQUEST_METHOD"] == "GET")
 
     // Construct SQL query
     $sql = "INSERT INTO customer_info 
-            (religion, name, phone, email, location, business, product, seller, payment_type, payment_mode, amount_paid, amount_pending, tickets, remark, payment_id, screenshot_path)
-            VALUES (
-                '$religion',
-                '$name',
-                '$phone',
-                '$email',
-                '$location',
-                '$business',
-                '$product',
-                '$seller',
-                '$payment_type',
-                '$payment_mode',
-                $amount_paid,
-                $amount_pending,
-                $tickets,
-                '$remark',
-                '$payment_id',
-                '$screenshot_path_escaped'
-            )";
+        (religion, name, phone, email, location, business, product, seller, payment_type, payment_mode, amount_paid, amount_pending, tickets, remark, payment_id, screenshot_path, gst_applicable, gst_percentage, gst_amount)
+        VALUES (
+            '$religion',
+            '$name',
+            '$phone',
+            '$email',
+            '$location',
+            '$business',
+            '$product',
+            '$seller',
+            '$payment_type',
+            '$payment_mode',
+            $amount_paid,
+            $amount_pending,
+            $tickets,
+            '$remark',
+            '$payment_id',
+            '$screenshot_path_escaped',
+            '$gst_applicable',
+            '$gst_percentage',
+            '$gst_amount'
+        )";
 
     // Execute query
     if ($conn->query($sql) === TRUE) {
