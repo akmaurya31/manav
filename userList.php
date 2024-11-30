@@ -152,7 +152,7 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
             <!-- Modal Header -->
             <div class="flex justify-between items-center p-4 border-b">
                 <h2 class="text-xl font-bold">Update User</h2>
-                <button type="button" class="text-gray-600 hover:text-gray-800" data-dismiss="modal">&times;</button>
+                <!-- <button type="button" class="text-gray-600 hover:text-gray-800" data-dismiss="modal">&times;</button> -->
             </div>
 
             <!-- Modal Body -->
@@ -165,10 +165,10 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
                                 <input type="text" id="nname" name="name" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
                                 <input type="hidden" id="nuid" name="uid" />
                             </div>
-                            <div class="mb-4">
+                            <!-- <div class="mb-4">
                                 <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
                                 <input type="text" id="username" name="username" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
-                            </div>
+                            </div> -->
                             <div class="mb-4">
                                 <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
                                 <input type="email" id="nemail" name="email" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
@@ -177,7 +177,7 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
                         <div>
                             <div class="mb-4">
                                 <label for="contactDetail" class="block text-sm font-medium text-gray-700">Contact Detail</label>
-                                <input type="text" id="ncontactDetail" name="contactDetail" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+                                <input type="text" id="mobile" name="contactDetail" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
                             </div>
                             <div class="mb-4">
                                 <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
@@ -185,10 +185,10 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
                             </div>
                         </div>
 
-                        <div class="col-span-1 md:col-span-2 mb-4">
+                        <!-- <div class="col-span-1 md:col-span-2 mb-4">
                              <label for="address" class="block text-sm font-medium text-gray-700">Address</label>
                           <textarea id="address" name="address" rows="4" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"></textarea>
-                        </div>
+                        </div> -->
                     </div>
                     <button type="submit" id="s1" class="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700">Submit</button>
                 </form>
@@ -196,7 +196,7 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
 
             <!-- Modal Footer -->
             <div class="flex justify-end p-4 border-t">
-                <button type="button" class="bg-gray-300 text-gray-700 py-2 px-4 rounded-md hover:bg-gray-400" data-dismiss="modal" onclick="document.getElementById('myModal').classList.add('hidden');">Close</button>
+                <!-- <button type="button" class="bg-gray-300 text-gray-700 py-2 px-4 rounded-md hover:bg-gray-400" data-dismiss="modal" onclick="document.getElementById('myModal').classList.add('hidden');">Close</button> -->
             </div>
         </div>
     </div>
@@ -209,7 +209,7 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
             <!-- Modal Header -->
             <div class="flex justify-between items-center p-4 border-b">
                 <h4 class="text-xl font-bold">Update Plan</h4>
-                <button type="button" class="text-gray-600 hover:text-gray-800" data-dismiss="modal">&times;</button>
+                <!-- <button type="button" class="text-gray-600 hover:text-gray-800" data-dismiss="modal">&times;</button> -->
             </div>
 
             <!-- Modal Body -->
@@ -250,7 +250,7 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
 
                     <!-- Modal Footer -->
                     <div class="flex justify-end pt-4 border-t">
-                        <button type="button" class="bg-gray-300 text-gray-700 py-2 px-4 rounded-md hover:bg-gray-400 mr-2" data-dismiss="modal">Close</button>
+                        <!-- <button type="button" class="bg-gray-300 text-gray-700 py-2 px-4 rounded-md hover:bg-gray-400 mr-2" data-dismiss="modal">Close</button> -->
                         <button type="submit" id="s1" class="bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700">Submit</button>
                     </div>
                 </form>
@@ -265,7 +265,7 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
             <div class="bg-white rounded-lg shadow-lg w-full max-w-4xl"> <!-- Large modal size using max-w-4xl -->
                 <!-- Modal Header -->
                 <div class="flex justify-between items-center p-4 border-b">
-                    <button type="button" class="text-gray-600 hover:text-gray-800" data-dismiss="modal">&times;</button>
+                    <!-- <button type="button" class="text-gray-600 hover:text-gray-800" data-dismiss="modal">&times;</button> -->
                 </div>
 
                 <!-- Modal Body -->
@@ -284,7 +284,7 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
                             <!-- Transaction ID / UTR -->
                             <div class="mb-4">
                                 <label for="r_transaction_id" class="block text-sm font-medium text-gray-700">Transaction ID/UTR</label>
-                                <input type="text" id="r_transaction_id" name="r_transaction_id" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                <input type="text" id="r_transaction_id" name="r_transaction_id"  class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                             </div>
 
                             <!-- Payment Date -->
@@ -297,7 +297,7 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
                         <!-- Modal Footer -->
                         <div class="flex justify-end pt-4 border-t">
                             <button type="submit" id="s1" class="bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 mr-2">Submit</button>
-                            <button type="button" class="bg-gray-300 text-gray-700 py-2 px-4 rounded-md hover:bg-gray-400" data-dismiss="modal">Close</button>
+                            <!-- <button type="button" class="bg-gray-300 text-gray-700 py-2 px-4 rounded-md hover:bg-gray-400" data-dismiss="modal">Close</button> -->
                         </div>
                     </form>
                 </div>
@@ -308,14 +308,14 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
 
  
 
-  <div id="myModal_recharge" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+<div id="myModal_recharge" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
   <!-- QR Code Modal -->
-<div class="  inset-0 flex items-center justify-center z-50">
+ <div class="  inset-0 flex items-center justify-center z-50">
   <div class="bg-white rounded-lg shadow-lg w-full max-w-md"> <!-- Set modal width with max-w-md -->
     <!-- Modal Header -->
     <div class="flex justify-between items-center p-4 border-b">
       <h4 class="text-lg font-semibold">QR Code</h4>
-      <button type="button" class="text-gray-600 hover:text-gray-800" data-dismiss="modal">&times;</button>
+      <!-- <button type="button" class="text-gray-600 hover:text-gray-800" data-dismiss="modal">&times;</button> -->
     </div>
 
     <!-- Modal Body -->
@@ -325,14 +325,15 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
 
     <!-- Modal Footer -->
     <div class="flex justify-end p-4 border-t">
-      <button type="button" class="bg-gray-300 text-gray-700 py-2 px-4 rounded-md hover:bg-gray-400" data-dismiss="modal">Close</button>
+      <!-- <button type="button" class="bg-gray-300 text-gray-700 py-2 px-4 rounded-md hover:bg-gray-400" data-dismiss="modal">Close</button> -->
     </div>
   </div>
 </div>
 </div>
 
 
-  <script>
+  <script> 
+
     $('.neditButton').click(function() {
         var userId = $(this).data('userid');
             $.ajax({
@@ -352,6 +353,12 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
                     var status = response.pay;
                     $('#status').val(status);
                     $('#contactDetail').val(response.contactDetail);
+                    $('#mobile').val(response.mobile);
+
+                    $('#r_transaction_id').val(response.transaction_id);
+                    $('#r_amount').val(response.pay);
+                    $('#r_pay_date').val(response.pay_date);
+                    
                 },
                 error: function(xhr, status, error) {
                     console.error('Failed to fetch userId from the server:', error);
@@ -367,8 +374,9 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
                 url: 'jqeditUser',
                 data: formData,
                 success: function(response) {
-                    console.log('API Response:', response);
-                    swal("Success!", "Your request was successful.", "success");
+                    // console.log('API Response:', response);
+                    // swal("Success!", "Your request was successful.", "success");
+                    location.reload();
                 },
                             error: function(xhr, status, error) {
                     console.error('Error:', error);
@@ -404,8 +412,9 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
                 url: 'jqeditPlan',
                 data: formData,
                 success: function(response) {
-                    console.log('API Response:', response);
-                    swal("Success!", "Your request was successful.", "success");
+                    // console.log('API Response:', response);
+                    // swal("Success!", "Your request was successful.", "success");
+                    location.reload();
                 },
                             error: function(xhr, status, error) {
                     console.error('Error:', error);
@@ -424,6 +433,17 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
                     var response = JSON.parse(response1);
                     $('#r_id').val(userId);
                     $('#pay_date').val(response.pay_date);
+                    $('#r_transaction_id').val(response.transaction_id);
+                    $('#r_amount').val(response.pay);
+
+                    let payDate = response.pay_date.split(' ')[0]; // Splits into [date, time] and takes the first part (date)
+                    $('#r_pay_date').val(payDate);
+                    $('#r_pay_date').val(formattedDate);
+
+
+                    //$('#r_pay_date').val(response.pay_date);
+                    
+
                     var status = response.pay;
                     $('#status').val(status);
                 },
@@ -441,8 +461,9 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
                 url: 'jqeditRecharge',
                 data: formData,
                 success: function(response) {
-                    console.log('API Response:', response);
-                    swal("Success!", "Your request was successful.", "success");
+                    // console.log('API Response:', response);
+                    // swal("Success!", "Your request was successful.", "success");
+                    location.reload();
                 },
                             error: function(xhr, status, error) {
                     console.error('Error:', error);

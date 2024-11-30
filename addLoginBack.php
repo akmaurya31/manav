@@ -43,9 +43,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               $_SESSION['yourbusiness'] = trim($row['yourbusiness']);
               $_SESSION['role'] = trim($row['role']);
               $_SESSION['visiblity'] = trim($row['visiblity']);
+              $_SESSION['teamtype'] = trim($row['teamtype']);
               $_SESSION['is_login'] = true;
               $_SESSION['current_balance'] = trim($row['current_balance']);
 
+             // $_SESSION['seller'] = trim($row['current_balance']);
+
+
+              $_SESSION['backLogin'] = 1;
+
+              $teamtype = $mysqli->real_escape_string($_SESSION['teamtype']);
+              $query = "SELECT access_field FROM teamtype WHERE nametype = '$teamtype'";  // Insert the sanitized teamtype directly into the query
+              $result = $mysqli->query($query);
+              if ($result && $row1 = $result->fetch_assoc()) {
+                  $_SESSION['access_fields'] = explode(',', $row1['access_field']);
+              } else {
+                  $_SESSION['access_fields'] = [];
+              }
               
               $stmt->close();
             // echo "User logged in successfully!";

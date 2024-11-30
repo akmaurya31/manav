@@ -133,12 +133,15 @@ function getCurWallet($mysqli,$userId) {
         <a href="saleList.php" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0   ">  📋Sale List</a>
       </li>
       <?php } ?>
-     
-
        
       <li>
-        <a href="logout.php" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0   ">  🚪 Logout</a>
+        <?php if (isset($_SESSION['backLogin']) && $_SESSION['backLogin'] == 1): ?>
+          <a href="backlogout.php" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0">🚪 Logout</a>
+        <?php else: ?>
+          <a href="logout.php" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0">🚪 Logout</a>
+        <?php endif; ?>
       </li>
+
 
 
     </ul>
