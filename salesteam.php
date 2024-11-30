@@ -23,6 +23,7 @@
                     <th class="py-2 px-4 border">Name</th>
                     <th class="py-2 px-4 border">Email</th>
                     <th class="py-2 px-4 border">Password</th>
+                    <th class="py-2 px-4 border">TeamType.</th>
                     <th class="py-2 px-4 border">Status</th>
                     <th class="py-2 px-4 border">Actions</th>
                 </tr>
@@ -64,6 +65,18 @@
                         <option value="inactive">Inactive</option>
                     </select>
                 </div>
+
+                <div class="mb-4">
+                    <label for="teamtype" class="block text-sm font-medium text-gray-700">Team Type</label>
+                    <select id="teamtype" class="mt-1 block w-full px-4 py-2 border rounded-md">
+                        <option value="Seminar">Sales Seminar team</option>
+                        <option value="G2B">G2B Team</option>
+                        <option value="Franchise">Franchise Team</option>
+                        <option value="DigitalIBIV">Digital IBIV Team</option>
+                    </select>
+                </div>
+
+
                 <button type="submit" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">Add Sales Person</button>
             </form>
         </div>
@@ -101,6 +114,18 @@
                         <option value="inactive">Inactive</option>
                     </select>
                 </div>
+
+                <div class="mb-4">
+                    <label for="edit_teamtype" class="block text-sm font-medium text-gray-700">Team Type</label>
+                    <select id="edit_teamtype" class="mt-1 block w-full px-4 py-2 border rounded-md">
+                        <option value="Seminar">Sales Seminar team</option>
+                        <option value="G2B">G2B Team</option>
+                        <option value="Franchise">Franchise Team</option>
+                        <option value="DigitalIBIV">Digital IBIV Team</option>
+                    </select>
+                </div>
+
+
                 <button type="submit" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">Update Sales Person</button>
             </form>
         </div>
@@ -119,12 +144,14 @@ function displaySalesTeam(salesTeam) {
                 <td class="py-2 px-4">${salesPerson.name}</td>
                 <td class="py-2 px-4">${salesPerson.email}</td>
                 <td class="py-2 px-4">${salesPerson.password}</td>
+                <td class="py-2 px-4">${salesPerson.teamtype}</td>
                 <td class="py-2 px-4">${salesPerson.status}</td>
-                <td class="py-2 px-4">
+                <td class="py-2 px-4" style="white-space: nowrap;">
                     <button class="px-4 py-2 bg-yellow-500 text-white rounded-md hover:bg-yellow-600" onclick="editSalesPerson(${salesPerson.id})">Edit</button>
                     <button class="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600" onclick="deleteSalesPerson(${salesPerson.id})">Delete</button>
                 </td>
             </tr>
+
         `;
     });
 }
@@ -158,17 +185,19 @@ $('#addSalesPersonForm').submit(function(e) {
     const email = $('#salesPersonEmail').val();
     const password = $('#salesPersonPassword').val();
     const status = $('#salesPersonStatus').val();
+    const teamtype = $('#teamtype').val();
     const baseURL = window.location.origin.includes('localhost') 
       ? '/manav1/manav' // Local environment
       : ''; // Production environment
     $.ajax({
         type: 'POST',
         url: `${baseURL}/salesadd`, // Replace with your API URL
-        data: { name, email, password, status },
+        data: { name, email, password, status,teamtype },
         success: function(response) {
             $('#addSalesPersonModal').addClass('hidden');
-            let salesData = JSON.parse(response);
-            displaySalesTeam(salesData); // Refresh the sales team list
+            // let salesData = JSON.parse(response);
+            // displaySalesTeam(salesData); // Refresh the sales team list
+            location.reload();
         },
         error: function(xhr, status, error) {
             console.error('Error adding sales person:', error);
@@ -186,6 +215,7 @@ $('#editSalesPersonForm').submit(function (e) {
     const email = $('#editSalesPersonEmail').val();
     const password = $('#editSalesPersonPassword').val();
     const status = $('#editSalesPersonStatus').val();
+    const edit_teamtype = $('#edit_teamtype').val();
     const baseURL = window.location.origin.includes('localhost') 
       ? '/manav1/manav' // Local environment
       : ''; // Production environment
@@ -194,11 +224,12 @@ $('#editSalesPersonForm').submit(function (e) {
 
         type: 'POST',
         url: `${baseURL}/salesedit`, // Replace with your edit API URL
-        data: { id, name, email, password, status },
+        data: { id, name, email, password, status,edit_teamtype },
         success: function (response) {
             $('#editSalesPersonModal').addClass('hidden');
-            let salesData = JSON.parse(response);
-            displaySalesTeam(salesData); // Refresh the sales team list
+            // let salesData = JSON.parse(response);
+            // displaySalesTeam(salesData); // Refresh the sales team list
+            location.reload();
         },
         error: function (xhr, status, error) {
             console.error('Error editing sales person:', error);
@@ -223,6 +254,7 @@ function editSalesPerson(id) {
             $('#editSalesPersonEmail').val(salesPerson.email);
             $('#editSalesPersonPassword').val(salesPerson.password);
             $('#editSalesPersonStatus').val(salesPerson.status);
+            $('#edit_teamtype').val(salesPerson.teamtype);
 
             $('#editSalesPersonModal').removeClass('hidden');
         }
@@ -238,8 +270,9 @@ function deleteSalesPerson(id) {
         url: `${baseURL}/salesdelete.php?id=${id}`, // Replace with your API URL
         method: 'GET',
         success: function(response) {
-            let salesData = JSON.parse(response);
-            displaySalesTeam(salesData); // Refresh the sales team list
+            // let salesData = JSON.parse(response);
+            // displaySalesTeam(salesData); // Refresh the sales team list
+            location.reload();
         }
     });
 }

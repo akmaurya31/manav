@@ -119,7 +119,7 @@ function displayProducts(products) {
                 <td class="py-2 px-4">${product.product_name}</td>
                 <td class="py-2 px-4">${product.product_code}</td>
                 <td class="py-2 px-4">${product.status}</td>
-                <td class="py-2 px-4">
+                <td class="py-2 px-4" style="white-space: nowrap;">
                     <button class="px-4 py-2 bg-yellow-500 text-white rounded-md hover:bg-yellow-600" onclick="editProduct(${product.id})">Edit</button>
                     <button class="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600" onclick="deleteProduct(${product.id})">Delete</button>
                 </td>
@@ -141,6 +141,7 @@ function fetchProducts() {
             let data1 = JSON.parse(data);
             if (Array.isArray(data1)) {
                 displayProducts(data1);
+                // location.reload();
             } else {
                 console.error('Expected an array, but received:', data1);
             }
@@ -169,7 +170,8 @@ $('#addProductForm').submit(function(e) {
         success: function(response) {
             $('#addProductModal').addClass('hidden');
             let data1 = JSON.parse(response);
-            displayProducts(data1); // Refresh the product list
+            // displayProducts(data1); // Refresh the product list
+            location.reload();
         },
         error: function(xhr, status, error) {
             console.error('Error adding product:', error);
@@ -202,29 +204,36 @@ function editProduct(productId) {
 }
 
 
-$('#editProductForm').submit(function(e) {
+$('#editProductForm').submit(function (e) {
     e.preventDefault();
+
     const productId = $('#editProductId').val();
     const updatedName = $('#editProductName').val();
     const updatedCode = $('#editProductCode').val();
     const updatedStatus = $('#editProductStatus').val();
-    const baseURL = window.location.origin.includes('localhost') 
-      ? '/manav1/manav' // Local environment
-      : ''; // Production environment
+
+    const baseURL = window.location.origin.includes('localhost')
+        ? '/manav1/manav' // Local environment
+        : ''; // Production environment
+
     $.ajax({
         type: 'POST',
         url: `${baseURL}/productsupdate`, // Replace with your API URL
         data: { id: productId, name: updatedName, code: updatedCode, status: updatedStatus },
-        success: function(response) {
-            let response1 = JSON.parse(response);
-            displayProducts(response1); // Refresh the product list
+        success: function (response) {
+            // let response1 = JSON.parse(response);
+            // displayProducts(response1); // Refresh the product list
             $('#editProductModal').addClass('hidden');
+
+            // Reload the page after success
+            location.reload();
         },
-        error: function(xhr, status, error) {
+        error: function (xhr, status, error) {
             console.error('Error updating product:', error);
         }
     });
 });
+
 
 
 // Function to delete a product using AJAX
@@ -236,7 +245,8 @@ function deleteProduct(productId) {
         type: 'DELETE',
         url: `${baseURL}/productsdelete.php?id=${productId}`, // Replace with your API URL
         success: function(response) {
-            displayProducts(response); // Refresh the product list
+            // displayProducts(response); // Refresh the product list
+            location.reload();
         },
         error: function(xhr, status, error) {
             console.error('Error deleting product:', error);

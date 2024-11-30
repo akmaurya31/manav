@@ -142,13 +142,6 @@ include('set_view.php');
        
         <section class="">
               
-
-
-
-
-   
-
-
             <div class="l-unconstrained mb-10 bg-black">
                 <div class="l-constrained">
                  
@@ -162,7 +155,6 @@ include('set_view.php');
                     <img class="pngtree-golden-light-spot_4402336-copy-6" src="images/pngtree_golden_light_spot_2.png" alt=""<?php echo $l4;?> >
                   </div>
                   <?php }  ?>
-
 
                   <div class="mission group">
                     <img class="layer-2" src="images/layer_2.png" alt="">

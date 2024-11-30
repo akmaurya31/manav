@@ -16,9 +16,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name']) && isset($_PO
     $email = $_POST['email'];
     $password = $_POST['password'];  // Ensure this is hashed before storing in a real application
     $status = $_POST['status'];
+    $teamtype = $_POST['teamtype'];
 
     // SQL query to insert a new sales team member
-    $insertSql = "INSERT INTO sales_team (name, email, password, status) VALUES ('$name', '$email', '$password', '$status')";
+    $insertSql = "INSERT INTO sales_team (name, email, password, status,teamtype) VALUES ('$name', '$email', '$password', '$status','$teamtype')";
 
     if (mysqli_query($conn, $insertSql)) {
         // If insert is successful, return success response

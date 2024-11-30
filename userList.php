@@ -103,19 +103,46 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
     </div>
 
     <!-- Pagination -->
-    <div class="pagination flex justify-center mt-4">
-        <?php if ($page > 1): ?>
-            <a href="?page=<?php echo $page - 1; ?>&search=<?php echo $search; ?>" class="px-4 py-2 bg-gray-200 rounded-l">Previous</a>
-        <?php endif; ?>
+     <!-- Pagination -->
+<div class="pagination flex justify-center mt-4">
+    <?php 
+    $max_visible_pages = 3; // Number of visible pages around the current page
 
-        <?php for ($i = 1; $i <= $total_pages; $i++): ?>
-            <a href="?page=<?php echo $i; ?>&search=<?php echo $search; ?>" class="px-4 py-2 bg-gray-200 <?php echo $i == $page ? 'bg-blue-500 text-white' : ''; ?>"><?php echo $i; ?></a>
-        <?php endfor; ?>
+    // Show "Previous" button
+    if ($page > 1): ?>
+        <a href="?page=<?php echo $page - 1; ?>&search=<?php echo $search; ?>" class="px-4 py-2 bg-gray-200 rounded-l">Previous</a>
+    <?php endif; ?>
 
-        <?php if ($page < $total_pages): ?>
-            <a href="?page=<?php echo $page + 1; ?>&search=<?php echo $search; ?>" class="px-4 py-2 bg-gray-200 rounded-r">Next</a>
-        <?php endif; ?>
-    </div>
+    <?php
+    // Display the first page
+    if ($page > $max_visible_pages + 1): ?>
+        <a href="?page=1&search=<?php echo $search; ?>" class="px-4 py-2 bg-gray-200">1</a>
+        <span class="px-4 py-2">...</span>
+    <?php endif; ?>
+
+    <?php
+    // Calculate the range of pages to display
+    $start = max(1, $page - $max_visible_pages);
+    $end = min($total_pages, $page + $max_visible_pages);
+
+    for ($i = $start; $i <= $end; $i++): ?>
+        <a href="?page=<?php echo $i; ?>&search=<?php echo $search; ?>" class="px-4 py-2 <?php echo $i == $page ? 'bg-blue-500 text-white' : 'bg-gray-200'; ?>"><?php echo $i; ?></a>
+    <?php endfor; ?>
+
+    <?php
+    // Display the last page
+    if ($page < $total_pages - $max_visible_pages): ?>
+        <span class="px-4 py-2">...</span>
+        <a href="?page=<?php echo $total_pages; ?>&search=<?php echo $search; ?>" class="px-4 py-2 bg-gray-200"><?php echo $total_pages; ?></a>
+    <?php endif; ?>
+
+    <?php
+    // Show "Next" button
+    if ($page < $total_pages): ?>
+        <a href="?page=<?php echo $page + 1; ?>&search=<?php echo $search; ?>" class="px-4 py-2 bg-gray-200 rounded-r">Next</a>
+    <?php endif; ?>
+</div>
+
 </div>
 
 <div id="myModal" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">

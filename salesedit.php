@@ -15,28 +15,17 @@ $name = $_REQUEST['name']; // Updated name
 $email = $_REQUEST['email']; // Updated email
 $password = $_REQUEST['password']; // Updated password
 $status = $_REQUEST['status']; // Updated status
+$edit_teamtype = $_REQUEST['edit_teamtype']; // Updated status
+
+
 
 // Prepare the SQL query to update the sales team member
-$sql = "UPDATE sales_team SET name = ?, email = ?, password = ?, status = ? WHERE id = ?";
+$sql = "UPDATE sales_team SET name = '$name', email = '$email', password = '$password', status = '$status', teamtype = '$edit_teamtype' WHERE id = $salesPersonId";
 
-if ($stmt = $conn->prepare($sql)) {
-    // Bind parameters (s = string, i = integer)
-    $stmt->bind_param("ssssi", $name, $email, $password, $status, $salesPersonId);
-
-    // Execute the statement
-    if ($stmt->execute()) {
-        // If the update was successful
-        echo json_encode(['success' => true, 'message' => 'Sales person updated successfully']);
-    } else {
-        // If the update failed
-        echo json_encode(['success' => false, 'error' => 'Failed to update sales person']);
-    }
-
-    // Close the statement
-    $stmt->close();
+if ($conn->query($sql) === TRUE) {
+    echo json_encode(['success' => true, 'message' => 'Sales person updated successfully']);
 } else {
-    // If preparing the statement failed
-    echo json_encode(['success' => false, 'error' => 'Failed to prepare SQL statement']);
+    echo json_encode(['success' => false, 'error' => 'Failed to update sales person']);
 }
 
 // Close the database connection
