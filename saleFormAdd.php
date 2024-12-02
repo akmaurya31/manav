@@ -13,9 +13,11 @@ if (!$conn) {
 
 // Print request method for debugging
 //  print_r($_POST); die("Asf");
+ session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" || $_SERVER["REQUEST_METHOD"] == "GET") {
     // Use null coalescing operator to handle missing values
+   
     $religion = $conn->real_escape_string($_POST['religion'] ?? "");
     $name = $conn->real_escape_string($_POST['name'] ?? "");
     $phone = $conn->real_escape_string($_POST['phone'] ?? "");
@@ -49,9 +51,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" || $_SERVER["REQUEST_METHOD"] == "GET")
     $screenshot_path_escaped = $conn->real_escape_string($screenshot_path ?? "");
 
     // Construct SQL query
-    $sql = "INSERT INTO customer_info 
-        (religion, name, phone, email, location, business, product, seller, payment_type, payment_mode, amount_paid, amount_pending, tickets, remark, payment_id, screenshot_path, gst_applicable, gst_percentage, gst_amount)
+    $idd=$_SESSION['idd'];
+      $sql = "INSERT INTO customer_info 
+        (seller_id,religion, name, phone, email, location, business, product, seller, payment_type, payment_mode, amount_paid, amount_pending, tickets, remark, payment_id, screenshot_path, gst_applicable, gst_percentage, gst_amount)
         VALUES (
+             $idd,
             '$religion',
             '$name',
             '$phone',
@@ -62,9 +66,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" || $_SERVER["REQUEST_METHOD"] == "GET")
             '$seller',
             '$payment_type',
             '$payment_mode',
-            $amount_paid,
-            $amount_pending,
-            $tickets,
+             $amount_paid,
+             $amount_pending,
+             $tickets,
             '$remark',
             '$payment_id',
             '$screenshot_path_escaped',

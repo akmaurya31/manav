@@ -50,10 +50,11 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
                     <th class="px-6 py-3">Tickets</th>
                     <th class="px-6 py-3">Remark</th>
                     <th class="px-6 py-3">Payment ID</th>
-                    <th class="px-6 py-3">Screenshot</th>
-                    <th class="px-6 py-3">gst_applicable</th>
-                    <th class="px-6 py-3">gst_percentage</th>
-                    <th class="px-6 py-3">gst_amount</th>
+                    <th class="px-6 py-3">PaySlip Photo</th>
+                    <th class="px-6 py-3">GST Applicable</th>
+                    <th class="px-6 py-3">GST Percentage</th>
+                    <th class="px-6 py-3">GST Amount</th>
+                    <th class="px-6 py-3">GST Slip</th>
                 </tr>
             </thead>
             <tbody class="bg-white divide-y divide-gray-200">
@@ -67,11 +68,15 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
                 $search = isset($_GET['search']) ? $mysqli->real_escape_string($_GET['search']) : '';
 
                 // Fetch users with search and pagination
-                $sql = "SELECT * FROM customer_info WHERE 
-                    name LIKE '%$search%' 
-                    OR email LIKE '%$search%' 
-                    OR phone LIKE '%$search%' 
-                    LIMIT $users_per_page OFFSET $offset";
+                $sellerid=$_SESSION['idd'];
+                $sql = "SELECT * 
+                        FROM customer_info 
+                        WHERE seller_id = '$sellerid' 
+                        AND (name LIKE '%$search%' 
+                            OR email LIKE '%$search%' 
+                            OR phone LIKE '%$search%') 
+                        LIMIT $users_per_page 
+                        OFFSET $offset";
                 $result = $mysqli->query($sql);
 
                 if ($result->num_rows > 0) {

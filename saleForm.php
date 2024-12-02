@@ -1,8 +1,8 @@
-<?php require_once("headerk.php");
+<?php require_once("headerk.php"); 
+  echo $_SESSION['teamtype'];
+  echo $_SESSION['idd'];
 
 
-//   print_r($_SESSION);
-// die("ASdf");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -352,18 +352,28 @@
             .then(response => response.json())  // Parse the response as JSON
             .then(data => {
                 const productDropdown = document.getElementById('product');
-                
-                // Clear existing options
                 productDropdown.innerHTML = '<option value="" disabled selected>Select Product</option>';
-                // let data1=JSON.parse(data);
-                // console.log(data1,"data1data1data1data1")
-                
-                // Loop through the data and populate the dropdown
+                let xname='';
                 data.forEach(product => {
-                    const option = document.createElement('option');
-                    option.value = product.id;
-                    option.textContent = product.product_name;
-                    productDropdown.appendChild(option);
+
+                    if(product.protype=='DIG'){
+                        xname='DigitalIBIV';
+                    }else if(product.protype=='FRA'){
+                        xname='Franchise';
+                    }else if(product.protype=='Seminar'){
+                        xname='Seminar';
+                    }else if(product.protype=='G2B'){
+                        xname='G2B';
+                    }
+
+
+                    let xteamtype = '<?php echo $_SESSION['teamtype']; ?>';
+                    if(xname==xteamtype){
+                        const option = document.createElement('option');
+                        option.value = product.id;
+                        option.textContent = product.product_name;
+                        productDropdown.appendChild(option);
+                    }
                 });
             })
             .catch(error => {
