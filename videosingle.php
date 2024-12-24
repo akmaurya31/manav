@@ -191,10 +191,13 @@ try {
   <!-- Main Content Section -->
   <section class="py-12 w-[900px]  md:w-[900px]  mx-auto grid   gap-2">
     <!-- Video and About the Lesson -->
+    
+
     <a href="video.php" class="back-button flex items-center bg-yellow-500 text-white px-4 py-2 rounded hover:bg-blue-600">
         <span class="back-icon mr-2">⬅️</span>
         Back
     </a>
+
     <div class="lg:col-span-2">
       <!-- Video Section -->
        <!-- <h1 class="text-xl">  <?php echo $international_vyapaar_topics[$id]['title']; ?></h1> -->
@@ -248,8 +251,20 @@ try {
 
 <?php } ?>
 
- 
-<div class="bg-white shadow-lg rounded-lg p-6 highlight">
+<div class="button-container flex flex-wrap justify-between gap-4">
+  <a href="markcompleted.php" class="back-button flex items-center bg-green-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+    <span class="back-icon mr-2">✔️</span>
+    Mark as Completed
+  </a>
+
+  <a href="feedback.php?id=<?php echo $id; ?>" class="back-button flex items-center bg-green-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+    <span class="back-icon mr-2">✍️</span>
+    Write a Feedback
+  </a>
+</div>
+
+
+<div class="bg-white shadow-lg rounded-lg p-6 highlight mt-3">
   <h2 class="text-xl font-bold text-[#662406] mb-4">Meet the Coach</h2>
   <div class="flex items-center">
     <img class="w-16 h-16 rounded-full border-4 border-indigo-500 floating" src="./images/1724738738665.jpeg" alt="Coach Photo">
