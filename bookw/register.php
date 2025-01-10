@@ -23,7 +23,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 <?php
 include('db_login.php');
 session_start();
-$connection = mysqli_connect($db_host, $db_username, $db_password, 'bookshow');
+$connection = mysqli_connect($db_host, $db_username, $db_password, $db_name);
 if (!$connection) {
 	die("Could not connect to the database: <br />" . mysqli_connect_error());
 }

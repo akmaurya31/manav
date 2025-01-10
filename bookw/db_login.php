@@ -22,6 +22,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 <?php
 	$db_host='localhost';
-	$db_username='root';
-	$db_password='root@123';
+	$db_username='admin';
+	$db_password='Luxyaragroup';
+	$db_name='tpeg';
 ?>
