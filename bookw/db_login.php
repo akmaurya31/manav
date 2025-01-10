@@ -21,7 +21,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 
 <?php
-	$db_host='localhost';
+	$db_host='mydb1.cpqyq4uowiba.ap-south-1.rds.amazonaws.com';
 	$db_username='admin';
 	$db_password='Luxyaragroup';
 	$db_name='tpeg';
