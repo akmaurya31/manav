@@ -14,7 +14,7 @@
   </p> -->
   
   <div class="max-w-4xl mx-auto p-4">
-  <img src="./images/vyp.jpeg" class="w-full h-auto max-h-[30vh] sm:max-h-[50vh] lg:max-h-[60vh] rounded-2xl object-cover" alt="Responsive Image" />
+  <img src="./images/vypen.jpeg" class="w-full h-auto max-h-[30vh] sm:max-h-[50vh] lg:max-h-[60vh] rounded-2xl object-cover" alt="Responsive Image" />
 </div>
 
 

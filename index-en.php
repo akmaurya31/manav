@@ -95,7 +95,7 @@ include('set_view.php');
                         <img class="block mx-auto mt-3 animate-bounce-left-right" src="images/international_brand.png" alt="International Brand" width="638" height="53" title="International Brand">
                 <p class="mt-6 text-[3.038194rem] font-medium text-center">बना कर रहेंगे हम</p>
             </div> -->
-            <img src="./images/vyp.jpeg" class="w-full h-[30%]" />
+            <img src="./images/vypen.jpeg" class="w-full h-[30%]" />
         </div>
         </header>
         <?php }else{ ?>
