@@ -1,7 +1,7 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <?php
 require_once("dbConnection.php");
-echo '<img src="./images/sign.jpeg" class="block w-full " />';
+echo '<img src="./images/signen.jpeg" class="block w-full " />';
 echo '<div class=" flex flex-col items-center justify-center mt-5">'; // Flex container for centering
 
 session_start();

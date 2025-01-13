@@ -6,7 +6,7 @@ include('../../dbConnection.php');  // Replace with your actual DB connection co
 
 // Assuming you receive payment details via query params (e.g., transaction_id, status)
 // For example: success.php?transaction_id=TXN12345&payment_status=success
-echo '<img src="./images/sign.jpeg" class="block w-full " />';
+echo '<img src="./images/signen.jpeg" class="block w-full " />';
 echo '<div class="flex items-center justify-center mt-5">'; // Flex container for centering
 
 

@@ -4,7 +4,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    <img src="./images/sign.jpeg" class="w-full h-[30%]" />
+    <img src="./images/signen.jpeg" class="w-full h-[30%]" />
 
 <?php
 // Include the database connection
