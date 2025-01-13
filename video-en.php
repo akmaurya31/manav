@@ -72,7 +72,7 @@
       <!-- Video Card 1 -->
       <div class="bg-white rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition duration-500">
         <div class="relative">
-        <a href="videosingle?id=1" target="_blank"> 
+        <a href="videosingle-en?id=1" target="_blank"> 
           <img class="w-full  " src="./images/1en.jpeg" alt="Video Thumbnail">
           <div class="  bottom-0 left-0 bg-slate-900 w-full p-4 text-white">
             <h2 class="text-xl font-bold">Topic #1: Why To Do International Vyapaar </h2>
@@ -89,14 +89,14 @@
               <p class="text-xs text-gray-500">Duration: 21 mins</p>
             </div>
           </div>
-          <a href="videosingle?id=1" class="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition duration-300">View Now</a>
+          <a href="videosingle-en?id=1" class="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition duration-300">View Now</a>
         </div>
       </div>
 
       <!-- Video Card 2 -->
       <div class="bg-white rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition duration-500">
         <div class="relative">
-          <a href="videosingle?id=2" target="_blank"> 
+          <a href="videosingle-en?id=2" target="_blank"> 
             <img class="w-full   object-cover" src="./images/2en.jpeg" alt="Video Thumbnail">
             <div class="  bottom-0 left-0 bg-slate-900 w-full p-4 text-white">
               <h2 class="text-xl font-bold">Topic #2: How To Do International Vyapaar </h2>
@@ -119,7 +119,7 @@
       <!-- Video Card 3 -->
       <div class="bg-white rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition duration-500">
         <div class="relative">
-          <a href="videosingle?id=3" target="_blank">  
+          <a href="videosingle-en?id=3" target="_blank">  
             <img class="w-full   object-cover" src="./images/3en.jpeg" alt="Video Thumbnail">
             <div class="  bottom-0 left-0 bg-slate-900 w-full p-4 text-white">
               <h2 class="text-xl font-bold">Topic #3: International Vyapaar - Government Rules and Compliances </h2>
@@ -135,14 +135,14 @@
               <p class="text-xs text-gray-500">Duration: 11 mins</p>
             </div>
           </div>
-          <a href="videosingle?id=3" class="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition duration-300">View Now</a>
+          <a href="videosingle-en?id=3" class="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition duration-300">View Now</a>
         </div>
       </div>
 
       <!-- Video Card 4 -->
       <div class="bg-white rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition duration-500">
         <div class="relative">
-        <a href="videosingle?id=4" target="_blank">  
+        <a href="videosingle-en?id=4" target="_blank">  
           <img class="w-full   object-cover" src="./images/4en.jpeg" alt="Video Thumbnail">
           <div class="  bottom-0 left-0 bg-slate-900 w-full p-4 text-white">
             <h2 class="text-xl font-bold">Topic #4: How TPEG Helps You in Doing International Vyapaar </h2>
@@ -158,7 +158,7 @@
               <p class="text-xs text-gray-500">Duration: 32 mins</p>
             </div>
           </div>
-          <a href="videosingle?id=4" class="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition duration-300">View Now</a>
+          <a href="videosingle-en?id=4" class="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition duration-300">View Now</a>
         </div>
       </div>
     </div>
