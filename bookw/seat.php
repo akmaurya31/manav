@@ -1,27 +1,3 @@
-<!--
-
-<Ticket-Booking>
-Copyright (C) <2013>  
-<Abhijeet Ashok Muneshwar>
-<openingknots@gmail.com>
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
- any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
--->
-
-<!DOCTYPE HTML>
-
 <?php
 	include('db_login.php');
 	session_start();
@@ -31,17 +7,170 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	}
 ?>
 
-<HTML>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Round Table Seating</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
 
-	<HEAD>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Bus Ticket Booking</title>
-		<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-		<link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.css">
-	</HEAD>
+        .hall {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            justify-content: center;
+        }
 
-	<style>
+        .table-container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: #f9c74f;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .table-center {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: #f3722c;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+        }
+
+        .seat {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-color: #232522;
+            border-radius: 50%;
+            color: white;
+            text-align: center;
+            line-height: 40px;
+            font-size: 14px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Positions for seats around the table */
+        .seat1 { transform: translate(50%, -50%) rotate(0deg) translate(73px) rotate(0deg); }
+        .seat2 { transform: translate(115%, -131%) rotate(60deg) translate(96px) rotate(-60deg); }
+        .seat3 { transform: translate(-50%, -50%) rotate(143deg) translate(92px) rotate(-144deg); }
+        .seat4 { transform: translate(-50%, -50%) rotate(180deg) translate(80px) rotate(-180deg); }
+        .seat5 { transform: translate(-50%, -50%) rotate(274deg) translate(-111px) rotate(-271deg); }
+        .seat6 { transform: translate(203%, 2%) rotate(300deg) translate(-108px) rotate(-300deg); }
+    </style>
+</head>
+<body>
+
+<h1>Round Table Seating Arrangement</h1>
+<div class="screen">SCREEN</div>
+<div class="hall">
+    <?php
+    // Total number of tables
+    $totalTables = 10; // Adjust this for more tables
+    $seatCounter = 1;
+
+    for ($table = 1; $table <= $totalTables; $table++) {
+        echo "<div class='table-container'>";
+        echo "<div class='table-center'>Table $table</div>";
+
+        // Generate 6 seats around the table
+        for ($i = 1; $i <= 6; $i++) {
+            //echo "<div class='seat seat$i'>S" . $seatCounter . "<input type='checkbox' name='ch" . $i . "'/></div>";
+            echo "<div class='seat seat$i'><input type='checkbox' name='ch" . $i . "'/></div>";
+            $seatCounter++;
+        }
+        echo "</div>";
+    }
+    ?>
+</div>
+<div class="cinema-container">
+				<div class="span101">
+
+<form action="book.php" method="POST" onsubmit="return validateCheckBox();">
+						<ul class="thumbnails">
+						<?php
+							 // Retrieve and sanitize the date from the POST request
+$date = strip_tags(utf8_decode($_POST['doj']));
+$query = "SELECT * FROM seat WHERE date = ?";
+$stmt = mysqli_prepare($connection, $query);
+mysqli_stmt_bind_param($stmt, "s", $date);
+mysqli_stmt_execute($stmt);
+$result = mysqli_stmt_get_result($stmt);
+
+// for ($i = 1; $i <= 11; $i++) {
+//     if ($i == 6) { // Add gap at the midpoint
+// 		echo "<li class='seatGap'></li>";
+//     }
+//     echo "<li class='span1'>$i</li>";
+// 	if ($i == 11) {
+// 		echo "<br/>";
+// 	}
+// }
+
+
+if (mysqli_num_rows($result) == 0) {
+    // If no seats are booked, show all seats as available
+
+	
+
+  
+} else {
+    // Initialize the seat array (0 = available, 1 = booked)
+    $seats = array_fill(0, 55, 0);
+
+    // Fetch booked seats and update the seat array
+    while ($row = mysqli_fetch_assoc($result)) {
+        $pnr = explode("-", $row['PNR']);
+        $pnrIndex = intval($pnr[3]) - 1; // Convert seat number to array index
+        $seats[$pnrIndex] = 1;
+    }
+
+    
+}
+
+// Close the statement and connection
+mysqli_stmt_close($stmt);
+mysqli_close($connection);
+						?>
+						</ul>
+						<center>
+							<label>Date of Journey</label>
+							<?php
+								echo "<input type='text' class='span2' name='doj' value='". $date ."' readonly/>";
+							?>
+							<br><br>
+							<button type="submit" class="btn btn-info">
+								<i class="icon-ok icon-white"></i> Submit
+							</button>
+							<button type="reset" class="btn">
+								<i class="icon-refresh icon-black"></i> Clear
+							</button>
+							<a href="./index.php" class="btn btn-danger"><i class="icon-arrow-left icon-white"></i> Back </a>
+						</center>
+					</form>
+ 
+<h1 class='note'>This is a visual representation only and does not ensure your seating arrangement. It simply illustrates the layout of the hall or banquet.</h1> 
+<style>
     .screen {
       background-color: #e0e0e0; /* Light grey for screen background */
       color: #000; /* Black text */
@@ -53,6 +182,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       padding: 20px;
       margin: 0 auto;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for effect */
+      margin-bottom:20px;
     }
     .cinema-container {
       display: flex;
@@ -70,6 +200,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     }
 
 	h1.note {
+        margin-top: 50px;
       text-align: center;
       background-color: #f8d7da; /* Soft red background */
       color: #721c24; /* Dark red text color */
@@ -117,135 +248,8 @@ input[type=checkbox]:checked:before {
 
   </style>
 
-	<BODY>
-		<br /><br /><br />
-		<div class="container">
 
-	
-
-			<div class="row well">
-
-		
-			<div class="cinema-container">
-  <div class="screen">SCREEN</div>
-</div>
-
-<div class="cinema-container">
-				<div class="span101">
-					<form action="book.php" method="POST" onsubmit="return validateCheckBox();">
-						<ul class="thumbnails">
-						<?php
-							 // Retrieve and sanitize the date from the POST request
-$date = strip_tags(utf8_decode($_POST['doj']));
-
-// Prepare the query
-$query = "SELECT * FROM seat WHERE date = ?";
-$stmt = mysqli_prepare($connection, $query);
-mysqli_stmt_bind_param($stmt, "s", $date);
-mysqli_stmt_execute($stmt);
-$result = mysqli_stmt_get_result($stmt);
-
-for ($i = 1; $i <= 11; $i++) {
-    if ($i == 6) { // Add gap at the midpoint
-		echo "<li class='seatGap'></li>";
-    }
-    echo "<li class='span1'>$i</li>";
-	if ($i == 11) {
-		echo "<br/>";
-	}
-}
-
-
-if (mysqli_num_rows($result) == 0) {
-    // If no seats are booked, show all seats as available
-
-	
-
-    for ($i = 1; $i <= 55; $i++) {
-        echo "<li class='span1'>";
-        echo "<a href='#' class='thumbnail' title='Available'>";
-        echo "<img src='img/available.png' alt='Available Seat'/>";
-        echo "<label class='checkbox'>";
-        echo "<input type='checkbox' name='ch" . $i . "'/>1Seat" . $i;
-        echo "</label>";
-        echo "</a>";
-        echo "</li>";
-
-		if ($i == 6) { // Add gap at the midpoint
-			echo "<li class='seatGap'></li>";
-		}
-    }
-} else {
-    // Initialize the seat array (0 = available, 1 = booked)
-    $seats = array_fill(0, 55, 0);
-
-    // Fetch booked seats and update the seat array
-    while ($row = mysqli_fetch_assoc($result)) {
-        $pnr = explode("-", $row['PNR']);
-        $pnrIndex = intval($pnr[3]) - 1; // Convert seat number to array index
-        $seats[$pnrIndex] = 1;
-    }
-
-    // Display the seats
-    for ($i = 1; $i <= 55; $i++) {
-        $j = $i - 1; // Adjust for array index
-        if ($seats[$j] == 1) {
-            echo "<li class='span1'>";
-            echo "<a href='#' class='thumbnail' title='Booked'>";
-            echo "<img src='img/occupied.png' alt='Booked Seat'/>";
-            echo "<label class='checkbox'>";
-            echo "<input type='checkbox' class='cbooked' name='ch" . $i . "' disabled/>S" . $i;
-            echo "</label>";
-            echo "</a>";
-            echo "</li>";
-        } else {
-            echo "<li class='span1'>";
-            echo "<a href='#' class='thumbnail' title='Available'>";
-            echo "<img src='img/available.png' alt='Available Seat'/>";
-            echo "<label class='checkbox'>";
-            echo "<input type='checkbox' name='ch" . $i . "'/>S" . $i;
-            echo "</label>";
-            echo "</a>";
-            echo "</li>";			 
-        }
-
-		if ($i % 11 == 5) {
-			echo "<li class='seatGap'></li>";
-		}
-		if ($i % 10 == 1) { // This will trigger for 11, 21, 31, 41, etc.
-			echo "<br/>";
-		}
-    }
-}
-
-// Close the statement and connection
-mysqli_stmt_close($stmt);
-mysqli_close($connection);
-						?>
-						</ul>
-						<center>
-							<label>Date of Journey</label>
-							<?php
-								echo "<input type='text' class='span2' name='doj' value='". $date ."' readonly/>";
-							?>
-							<br><br>
-							<button type="submit" class="btn btn-info">
-								<i class="icon-ok icon-white"></i> Submit
-							</button>
-							<button type="reset" class="btn">
-								<i class="icon-refresh icon-black"></i> Clear
-							</button>
-							<a href="./index.php" class="btn btn-danger"><i class="icon-arrow-left icon-white"></i> Back </a>
-						</center>
-					</form>
-				</div>
-			</div>
-		</div>
-
-		 <h1 class='note'>This is a visual representation only and does not ensure your seating arrangement. It simply illustrates the layout of the hall or banquet.</h1> 
-
-
-		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 		<script>window.jQuery || document.write('<script src="js/jquery-latest.min.js">\x3C/script>')</script>
 		<script type="text/javascript" src="js/bootstrap.js"></script>
 		<script type="text/javascript">
@@ -266,5 +270,6 @@ mysqli_close($connection);
 				return false;
 			}
 		</script>
-	</BODY>
-</HTML>
+
+</body>
+</html>
