@@ -80,9 +80,105 @@
     </style>
 </head>
 <body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stage with Curtains</title>
+    <style>
+        /* General body styling */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+        }
 
-<h1>Round Table Seating Arrangement</h1>
-<div class="screen">SCREEN</div>
+        /* Stage container */
+        .stage-container {
+            position: relative;
+            width: 500px;
+            height: 100px;
+            background: linear-gradient(to bottom, #6a1b9a, #8e24aa);
+            color: white;
+            text-align: center;
+            line-height: 100px;
+            font-size: 24px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+        }
+
+        /* Curtains */
+        .curtain {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle at 50% 50%, #e53935, #b71c1c);
+            border-radius: 50%;
+            box-shadow: inset -5px -5px 10px rgba(0, 0, 0, 0.3), 5px 5px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .curtain.left {
+            top: -10px;
+            left: -60px;
+            transform: rotate(45deg);
+        }
+
+        .curtain.right {
+            top: -10px;
+            right: -60px;
+            transform: rotate(-45deg);
+        }
+
+        /* Curtain folds */
+        .curtain::before,
+        .curtain::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: skewX(-10deg);
+        }
+
+        .curtain::before {
+            left: 10%;
+        }
+
+        .curtain::after {
+            left: 30%;
+        }
+
+        /* Decorative details for the stage */
+        .stage-border {
+            position: absolute;
+            top: 100px;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(to right, #ffd600, #ffab00);
+            border-radius: 0 0 8px 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="stage-container">
+        Stage
+        <div class="curtain left"></div>
+        <div class="curtain right"></div>
+        <div class="stage-border"></div>
+    </div>
+</body>
+</html>
+
+ 
+<div class="screen">--</div>
 <div class="hall">
     <?php
     // Total number of tables
