@@ -13,13 +13,13 @@ require_once("dbConnection.php");
 // Check if the form has been submitted
 if (isset($_POST['submit'])) {
     // Sanitize user inputs to avoid SQL injection
-    $name = mysqli_real_escape_string($mysqli, $_POST['name']);
-    $mobile = mysqli_real_escape_string($mysqli, $_POST['mobile']);
-    $email = mysqli_real_escape_string($mysqli, $_POST['email']);
-    $password = mysqli_real_escape_string($mysqli, $_POST['password']);
-    $city = mysqli_real_escape_string($mysqli, $_POST['city']);
-    $state = mysqli_real_escape_string($mysqli, $_POST['state']);
-    $yourbusiness = mysqli_real_escape_string($mysqli, $_POST['business']);
+    $name = trim(mysqli_real_escape_string($mysqli, $_POST['name']));
+    $mobile = trim(mysqli_real_escape_string($mysqli, $_POST['mobile']));
+    $email = trim(mysqli_real_escape_string($mysqli, $_POST['email']));
+    $password = trim(mysqli_real_escape_string($mysqli, $_POST['password']));
+    $city = trim(mysqli_real_escape_string($mysqli, $_POST['city']));
+    $state = trim(mysqli_real_escape_string($mysqli, $_POST['state']));
+    $yourbusiness = trim(mysqli_real_escape_string($mysqli, $_POST['business']));
 
     // Check for empty fields
     if (empty($name) || empty($mobile) || empty($email) || empty($password)) {
