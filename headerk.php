@@ -96,9 +96,17 @@ function getCurWallet($mysqli,$userId) {
         <a href="#" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 " aria-current="page">  🎥<?php // print_r($_SESSION); ?> 
          <?php echo $_SESSION['mobile'] ?> <br/> </a>
       </li>
+
+      <?php if($_SESSION['langContent']=='en'){ ?> 
+      <li>
+        <a href="video-en.php" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0   ">  📩 Your Content</a>
+      </li>
+      <?php }else{ ?>
+
       <li>
         <a href="video.php" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0   ">  📩 Your Content</a>
       </li>
+      <?php }  ?>
 
       <?php if($_SESSION['current_balance']<0) { ?>
  

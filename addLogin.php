@@ -44,17 +44,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               $_SESSION['role'] = trim($row['role']);
               $_SESSION['is_login'] = true;
               $_SESSION['current_balance'] = trim($row['current_balance']);
+              $_SESSION['langContent'] = trim($row['langContent']);
 
               
               $stmt->close();
             // echo "User logged in successfully!";
-             if($row['current_balance']<0){
-                header("Location: pay.php");
-             }else if($row['current_balance']>0){
-                header("Location: video.php");
-             }else{
-                header("Location: pay.php");
-             }
+
+            if($row['langContent']!='en'){
+                if($row['current_balance']<0){
+                    header("Location: pay.php");
+                }else if($row['current_balance']>0){
+                    header("Location: video.php");
+                }else{
+                    header("Location: pay.php");
+                }
+            }elseif($row['langContent']=='en'){
+                if($row['current_balance']<0){
+                    header("Location: pay-en.php");
+                }else if($row['current_balance']>0){
+                    header("Location: video-en.php");
+                }else{
+                    header("Location: pay-en.php");
+                }
+            }
+
+
+
+
               exit;
             // Do something with the user data
 
